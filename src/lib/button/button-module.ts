@@ -13,6 +13,7 @@ import {A11yModule} from '@angular/cdk/a11y';
 import {
   MatAnchor,
   MatButton,
+  MatButtonBadge,
   MatMiniFab,
   MatButtonCssMatStyler,
   MatFab,
@@ -37,6 +38,7 @@ import {
     MatButtonCssMatStyler,
     MatRaisedButtonCssMatStyler,
     MatIconButtonCssMatStyler,
+    MatButtonBadge,
   ],
   declarations: [
     MatButton,
@@ -46,6 +48,7 @@ import {
     MatButtonCssMatStyler,
     MatRaisedButtonCssMatStyler,
     MatIconButtonCssMatStyler,
+    MatButtonBadge,
   ],
 })
 export class MatButtonModule {}

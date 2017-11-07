@@ -25,6 +25,13 @@ $mat-fab-padding: 16px !default;
 $mat-mini-fab-size: 40px !default;
 $mat-mini-fab-padding: 8px !default;
 
+// Badge standards
+$mat-button-badge-size: 22px !default;
+$mat-button-badge-position-top: -10px !default;
+$mat-button-badge-position-right: -10px !default;
+$mat-button-badge-border-radius: 50% !default;
+$mat-button-badge-z-index: 10000 !default;
+
 // Applies base styles to all button types.
 %mat-button-base {
   box-sizing: border-box;
@@ -108,5 +115,29 @@ $mat-mini-fab-padding: 8px !default;
     padding: $padding 0;
     display: inline-block;
     line-height: $mat-icon-button-line-height;
+  }
+}
+
+@mixin mat-button-badge($size) {
+  position: relative;
+
+  &:after {
+    content: attr(data-badge);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: $mat-button-badge-position-top;
+    right: $mat-button-badge-position-right;
+
+    z-index: $mat-button-badge-z-index;
+
+    width: $size;
+    height: $size;
+    border-radius: $mat-button-badge-border-radius;
   }
 }

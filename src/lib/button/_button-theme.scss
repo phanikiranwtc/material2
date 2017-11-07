@@ -104,6 +104,11 @@
   .mat-icon-button {
     @include _mat-button-ripple-color($theme, default);
   }
+
+  .mat-button-badge:after {
+    color: mat-color($accent, default-contrast);
+    background-color: mat-color($accent);
+  }
 }
 
 @mixin mat-button-typography($config) {
@@ -112,6 +117,16 @@
       family: mat-font-family($config, button);
       size: mat-font-size($config, button);
       weight: mat-font-weight($config, button);
+    }
+  }
+}
+
+@mixin mat-button-badge-typography($config) {
+  .mat-button-badge:after {
+    font: {
+      family: mat-font-family($config, button-badge);
+      size: mat-font-size($config, button-badge);
+      weight: mat-font-weight($config, button-badge);
     }
   }
 }

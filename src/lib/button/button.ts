@@ -18,6 +18,8 @@ import {
   Renderer2,
   Self,
   ViewEncapsulation,
+  Input,
+  SimpleChanges,
 } from '@angular/core';
 import {Platform} from '@angular/cdk/platform';
 import {
@@ -100,6 +102,36 @@ export class MatMiniFab {
   }
 }
 
+/**
+ * Directive whose purpose is to add a badge to the material design button.
+ */
+@Directive({
+  selector: 'button[mat-button-badge], a[mat-button-badge]',
+  host: {'class': 'mat-button-badge'},
+  inputs: ['badgeText:mat-button-badge']
+})
+export class MatButtonBadge {
+
+  /** Text to be shown in the badge. */
+  // @Input('mat-button-badge')
+  badgeText: string;
+
+  constructor(private _renderer: Renderer2,
+              private _elementRef: ElementRef) {
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['badgeText']) {
+      this._setBadgeData();
+    }
+  }
+
+  _setBadgeData() {
+    // Setting the data-badge attribute on the host element which will be used by the style to 
+    // render a badge on the button.
+    this._renderer.setAttribute(this._elementRef.nativeElement, 'data-badge', this.badgeText);
+  }
+}
 
 // Boilerplate for applying mixins to MatButton.
 /** @docs-private */

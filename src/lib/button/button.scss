@@ -50,6 +50,10 @@
   }
 }
 
+.mat-button-badge {
+  @include mat-button-badge($mat-button-badge-size);
+}
+
 // The text and icon should be vertical aligned inside a button
 .mat-button, .mat-raised-button, .mat-icon-button {
   color: currentColor;
@@ -96,7 +100,7 @@
 
 // Add an outline to make it more visible in high contrast mode.
 @include cdk-high-contrast {
-  .mat-button, .mat-raised-button, .mat-icon-button, .mat-fab, .mat-mini-fab {
+  .mat-button, .mat-raised-button, .mat-icon-button, .mat-fab, .mat-mini-fab, .mat-button-badge:after {
     outline: solid 1px;
   }
 }
